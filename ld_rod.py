@@ -4,12 +4,13 @@ import mido
 import time
 
 lastCryo = time.time()
-interval = 9
+interval = 59
 
 # names = mido.get_output_names()
-# print(names)
+# for name in names:
+#     print(name)
 
-out_port = mido.open_output('qlcplus:__QLC__ 128:0')
+out_port = mido.open_output(names[0])
 
 pygame.mixer.init()
 sounds = [
