@@ -39,23 +39,25 @@ def sendMidiNote(note):
 
 try:
     sp = serial.Serial(port="/dev/ttyACM0", baudrate=512000, timeout=None)
+    while sp:
+        while True:
+
+            teensyOutput = sp.read(4).decode('utf8').lstrip().rstrip()
+
+            if int(teensyOutput[0]) == 0:
+                teensyOutput = teensyOutput[1]
+
+            for i in range(17):
+                if int(teensyOutput) == i:
+                    sounds[i - 1].play()
+
+                    note = 100 + i
+                    sendMidiNote(note)
+
+                    if time.time() - lastCryo > interval:
+                        sendMidiNote(127)
+                        lastCryo = time.time()
 except:
     print("Failed to connect on /dev/ttyACM0")
 
-while sp:
-    while True:
 
-        teensyOutput = sp.read(4).decode('utf8').lstrip().rstrip()
-
-        if int(teensyOutput[0]) == 0:
-            teensyOutput = teensyOutput[1]
-
-        for i in range(17):
-            if int(teensyOutput) == i:
-                sounds[i - 1].play()
-
-                note = 100 + i
-                sendMidiNote(note)
-
-                if time.time() - lastCryo > interval:
-                    sendMidiNote(127)
