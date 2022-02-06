@@ -13,22 +13,22 @@ out_port = mido.open_output('qlcplus:__QLC__ 128:0')
 
 pygame.mixer.init()
 sounds = [
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('BTSTU2.wav'),
-          pygame.mixer.Sound('laugh.wav'),]
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),
+          pygame.mixer.Sound('test.wav'),]
 
 def sendMidiNote(note):
     msg = mido.Message('note_on', note=note, velocity=127, time=1)
@@ -44,7 +44,6 @@ except:
 while sp:
     while True:
         nl = sp.read(4).decode('utf8').lstrip().rstrip()
-        print(nl)
         if int(nl[0]) == 0:
             nl = nl[1]
         for i in range(17):
