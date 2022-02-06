@@ -6,9 +6,9 @@ import time
 lastCryo = time.time()
 interval = 59
 
-# names = mido.get_output_names()
-# for name in names:
-#     print(name)
+names = mido.get_output_names()
+for name in names:
+    # print(name)
 
 out_port = mido.open_output(names[0])
 
@@ -44,11 +44,11 @@ except:
 
 while sp:
     while True:
-        nl = sp.read(4).decode('utf8').lstrip().rstrip()
-        if int(nl[0]) == 0:
-            nl = nl[1]
+        teensyOutput = sp.read(4).decode('utf8').lstrip().rstrip()
+        if int(teensyOutput[0]) == 0:
+            teensyOutput = teensyOutput[1]
         for i in range(17):
-            if int(nl) == i:
+            if int(teensyOutput) == i:
                 sounds[i - 1].play()
                 note = 100 + i
                 sendMidiNote(note)
