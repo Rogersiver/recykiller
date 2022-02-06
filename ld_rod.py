@@ -1,4 +1,3 @@
-
 import pygame
 import serial
 import mido
@@ -7,12 +6,12 @@ import time
 lastCryo = time.time()
 interval = 9
 
+# names = mido.get_output_names()
+# print(names)
+
+out_port = mido.open_output('qlcplus:__QLC__ 128:0')
+
 pygame.mixer.init()
-test_sound = pygame.mixer.Sound('BTSTU2.wav')
-laugh_sound = pygame.mixer.Sound('laugh.wav')
-names = mido.get_output_names()
-print(names)
-out_port = mido.open_output('Midi Through:Midi Through Port-0 14:0')
 sounds = [
           pygame.mixer.Sound('BTSTU2.wav'),
           pygame.mixer.Sound('BTSTU2.wav'),
@@ -48,11 +47,10 @@ while sp:
         print(nl)
         if int(nl[0]) == 0:
             nl = nl[1]
-        for i in range(16):
+        for i in range(17):
             if int(nl) == i:
                 sounds[i - 1].play()
                 note = 100 + i
-                print("note", note)
-                sendMidiNote(100 + i)
+                sendMidiNote(note)
                 if time.time() - lastCryo > interval:
-                    sendMidiNote(100)
+                    sendMidiNote(127)
