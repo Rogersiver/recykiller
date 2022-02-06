@@ -1,4 +1,4 @@
-# sudo modprobe snd_virmidi
+
 import pygame
 import serial
 import mido
