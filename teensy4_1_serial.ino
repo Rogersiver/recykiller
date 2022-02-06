@@ -18,7 +18,7 @@ Bounce b15 = Bounce( 15, 3000);
 Bounce b16 = Bounce( 16, 3000);
 
 void setup() {
-    Serial.begin(9600);
+    Serial.begin(512000);
         pinMode(1, INPUT_PULLUP);
         pinMode(2, INPUT_PULLUP);
         pinMode(3, INPUT_PULLUP);
@@ -95,7 +95,7 @@ void loop() {
             Serial.println("13");
         }
         if (b14.fallingEdge()) {
-            Serial.println("4");
+            Serial.println("14");
         }
         if (b15.fallingEdge()) {
             Serial.println("15");
