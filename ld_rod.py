@@ -14,18 +14,18 @@ out_port = mido.open_output(names[0])
 
 pygame.mixer.init()
 sounds = [
-          pygame.mixer.Sound('test.wav'), # 1
-          pygame.mixer.Sound('test.wav'), # 2
-          pygame.mixer.Sound('test.wav'), # 3
-          pygame.mixer.Sound('test.wav'), # 4
-          pygame.mixer.Sound('test.wav'), # 5
-          pygame.mixer.Sound('test.wav'), # 6
-          pygame.mixer.Sound('test.wav'), # 7
-          pygame.mixer.Sound('test.wav'), # 8
-          pygame.mixer.Sound('test.wav'), # 9
-          pygame.mixer.Sound('test.wav'), # 10
-          pygame.mixer.Sound('test.wav'), # 11
-          pygame.mixer.Sound('test.wav'), # 12
+          pygame.mixer.Sound('001.wav'), # 1
+          pygame.mixer.Sound('002.wav'), # 2
+          pygame.mixer.Sound('003.wav'), # 3
+          pygame.mixer.Sound('004.wav'), # 4
+          pygame.mixer.Sound('005.wav'), # 5
+          pygame.mixer.Sound('006.wav'), # 6
+          pygame.mixer.Sound('007.wav'), # 7
+          pygame.mixer.Sound('008.wav'), # 8
+          pygame.mixer.Sound('009.wav'), # 9
+          pygame.mixer.Sound('010.wav'), # 10
+          pygame.mixer.Sound('011.wav'), # 11
+          pygame.mixer.Sound('012.wav'), # 12
           pygame.mixer.Sound('test.wav'), # 13
           pygame.mixer.Sound('test.wav'), # 14
           pygame.mixer.Sound('test.wav'), # 15

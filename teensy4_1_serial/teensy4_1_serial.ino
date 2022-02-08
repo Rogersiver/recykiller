@@ -8,19 +8,25 @@ Bounce b5 = Bounce( 5, 3000);
 Bounce b6 = Bounce( 6, 3000);
 Bounce b7 = Bounce( 7, 3000);
 Bounce b8 = Bounce( 8, 3000);
-Bounce b9 = Bounce( 9, 3000);
-Bounce b10 = Bounce( 10, 3000);
-Bounce b11 = Bounce( 11, 3000);
-Bounce b12 = Bounce( 12, 3000);
-Bounce b13 = Bounce( 13, 3000);
-Bounce b14 = Bounce( 14, 3000);
-Bounce b15 = Bounce( 15, 3000);
+Bounce b9 = Bounce( 23, 3000);
+Bounce b10 = Bounce( 22, 3000);
+Bounce b11 = Bounce( 21, 3000);
+Bounce b12 = Bounce( 20, 3000);
+Bounce b13 = Bounce( 19, 3000);
+Bounce b14 = Bounce( 18, 3000);
+Bounce b15 = Bounce( 17, 3000);
 Bounce b16 = Bounce( 16, 3000);
 
 void setup() {
+
     Serial.begin(512000);
-for(int i=1; i<=16; i++) {
-pinMode(i, INPUT_PULLUP);
+
+for(int i=1; i<=8; i++) {
+pinMode(i, INPUT);
+}
+
+for(int i=23; i<=16; i++) {
+pinMode(i, INPUT);
 }
 }
 
