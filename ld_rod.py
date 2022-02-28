@@ -2,7 +2,7 @@ import pygame
 import serial
 import mido
 import time
-
+import shelve
 lastCryo = time.time()
 interval = 59
 
@@ -37,6 +37,15 @@ def sendMidiNote(note):
     msg = mido.Message('note_off', note=note, velocity=127, time=1)
     out_port.send(msg)
 
+def incrementCanCount():
+    s = shelve.open('count.db', writeback=True)
+    try:
+        s['key1']['count'] += 1
+    finally:
+        s.close()
+    s = shelve.open('count.db', writeback=True)
+    s.close()
+
 try:
     sp = serial.Serial(port="/dev/ttyACM0", baudrate=512000, timeout=None)
     while sp:
@@ -53,6 +62,7 @@ try:
 
                     note = 100 + i
                     sendMidiNote(note)
+                    incrementCanCount()
 
                     if time.time() - lastCryo > interval:
                         sendMidiNote(127)
