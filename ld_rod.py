@@ -26,7 +26,7 @@ sounds = [
           pygame.mixer.Sound('010.wav'), # 10
           pygame.mixer.Sound('011.wav'), # 11
           pygame.mixer.Sound('012.wav'), # 12
-          pygame.mixer.Sound('test.wav'), # 13
+          pygame.mixer.Sound('002.wav'), # 13
           pygame.mixer.Sound('test.wav'), # 14
           pygame.mixer.Sound('test.wav'), # 15
           pygame.mixer.Sound('test.wav'),] # 16
