@@ -40,7 +40,7 @@ def sendMidiNote(note):
 def incrementCanCount():
     s = shelve.open('count.db', writeback=True)
     try:
-        s['key1']['count'] += 1
+        s['thursday']['count'] += 1
     finally:
         s.close()
     s = shelve.open('count.db', writeback=True)
