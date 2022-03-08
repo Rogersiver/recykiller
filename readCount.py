@@ -1,6 +1,8 @@
 import shelve
+
 s = shelve.open('counter.db')
 try:
-    s['key1'] = { 'count': 1}
+    count = s['key1']
 finally:
+    print(s['key1'])
     s.close()

@@ -1,10 +1,11 @@
+import shelve
 import pygame
 import serial
 import mido
 import time
-import shelve
 lastCryo = time.time()
 interval = 59
+
 
 names = mido.get_output_names()
 # for name in names:
@@ -38,12 +39,12 @@ def sendMidiNote(note):
     out_port.send(msg)
 
 def incrementCanCount():
-    s = shelve.open('count.db', writeback=True)
+    s = shelve.open('counter.db', writeback=True)
     try:
-        s['thursday']['count'] += 1
+        s['key1']['count'] += 1
     finally:
         s.close()
-    s = shelve.open('count.db', writeback=True)
+    s = shelve.open('counter.db', writeback=True)
     s.close()
 
 try:
@@ -59,7 +60,6 @@ try:
             for i in range(17):
                 if int(teensyOutput) == i:
                     sounds[i - 1].play()
-
                     note = 100 + i
                     sendMidiNote(note)
                     incrementCanCount()
