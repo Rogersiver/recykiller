@@ -4,3 +4,4 @@ try:
     s['key1'] = { 'count': 1}
 finally:
     s.close()
+

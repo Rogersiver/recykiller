@@ -1,8 +1,8 @@
+import time
 import shelve
 import pygame
 import serial
 import mido
-import time
 lastCryo = time.time()
 interval = 59
 
@@ -51,7 +51,6 @@ try:
     sp = serial.Serial(port="/dev/ttyACM0", baudrate=512000, timeout=None)
     while sp:
         while True:
-
             teensyOutput = sp.read(4).decode('utf8').lstrip().rstrip()
 
             if int(teensyOutput[0]) == 0:
