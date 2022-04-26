@@ -1,4 +1,4 @@
-}#include <Bounce.h>
+#include <Bounce.h>
 
 Bounce b1 = Bounce( 1, 3000);
 Bounce b2 = Bounce( 2, 3000);
@@ -97,4 +97,4 @@ void loop() {
             Serial.println("16");
         }
 
-} 
+}
