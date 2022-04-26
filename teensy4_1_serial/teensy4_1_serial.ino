@@ -1,4 +1,4 @@
-#include <Bounce.h>
+}#include <Bounce.h>
 
 Bounce b1 = Bounce( 1, 3000);
 Bounce b2 = Bounce( 2, 3000);
@@ -25,7 +25,7 @@ for(int i=1; i<=8; i++) {
 pinMode(i, INPUT);
 }
 
-for(int i=23; i<=16; i++) {
+for(int i=23; i>=16; i--) {
 pinMode(i, INPUT);
 }
 }
@@ -97,4 +97,4 @@ void loop() {
             Serial.println("16");
         }
 
-}
+} 
