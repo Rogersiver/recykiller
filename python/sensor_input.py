@@ -3,7 +3,12 @@ import shelve
 import pygame
 import serial
 import mido
+from random import randrange
+
+
 lastCryo = time.time()
+lastHit = time.time()
+hitInterv = 15
 interval = 59
 
 
@@ -51,6 +56,11 @@ try:
     sp = serial.Serial(port="/dev/ttyACM0", baudrate=512000, timeout=None)
     while sp:
         while True:
+            if time.time() - lastHit > interval:
+                num = randrange(13)
+                print(num)
+                sendMidiNote(100 + num)
+
             teensyOutput = sp.read(4).decode('utf8').lstrip().rstrip()
 
             if int(teensyOutput[0]) == 0:
@@ -66,7 +76,6 @@ try:
                     if time.time() - lastCryo > interval:
                         sendMidiNote(127)
                         lastCryo = time.time()
-except:
-    print("Failed to connect on /dev/ttyACM0")
-
+except Exception as e:
+    print(e)
 

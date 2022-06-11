@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Workspace>
-<Workspace xmlns="http://www.qlcplus.org/Workspace" CurrentWindow="VirtualConsole">
+<Workspace xmlns="http://www.qlcplus.org/Workspace" CurrentWindow="FunctionManager">
  <Creator>
   <Name>Q Light Controller Plus</Name>
-  <Version>4.12.4</Version>
-  <Author>root</Author>
+  <Version>4.12.5 GIT</Version>
+  <Author>Roger Siver</Author>
  </Creator>
  <Engine Autostart="41">
   <InputOutputMap>
    <Universe Name="Universe 1" ID="0">
-    <Input Plugin="MIDI" Line="0"/>
-    <Output Plugin="DMX USB" Line="0">
-     <PluginParameters UniverseChannels="59"/>
-    </Output>
+    <Input Plugin="MIDI" UID="None" Line="0"/>
+    <Output Plugin="DMX USB" UID="None" Line="0"/>
    </Universe>
    <Universe Name="Universe 2" ID="1"/>
    <Universe Name="Universe 3" ID="2"/>
@@ -260,15 +258,23 @@
    <MonoColor>4294901760</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
+   <Property Name="presetNumber" Value="5"/>
   </Function>
   <Function ID="1" Type="RGBMatrix" Name="Animation Balls (Colors) - Generic RGB">
-   <Speed FadeIn="0" FadeOut="0" Duration="500"/>
+   <Speed FadeIn="0" FadeOut="0" Duration="53"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <Algorithm Type="Script">Balls (Colors)</Algorithm>
    <MonoColor>4294901760</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
+   <Property Name="color4Index" Value="Blue"/>
+   <Property Name="presetSize" Value="5"/>
+   <Property Name="color2Index" Value="Red"/>
+   <Property Name="color5Index" Value="Orange"/>
+   <Property Name="presetNumber" Value="5"/>
+   <Property Name="color3Index" Value="Green"/>
+   <Property Name="presetCollision" Value="Yes"/>
   </Function>
   <Function ID="2" Type="RGBMatrix" Name="Animation Blinder - Generic RGB">
    <Speed FadeIn="0" FadeOut="0" Duration="500"/>
@@ -287,6 +293,7 @@
    <MonoColor>4294901760</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
+   <Property Name="circlesAmount" Value="3"/>
   </Function>
   <Function ID="4" Type="RGBMatrix" Name="Animation Even/Odd - Generic RGB">
    <Speed FadeIn="0" FadeOut="0" Duration="500"/>
@@ -316,20 +323,21 @@
    <FixtureGroup>0</FixtureGroup>
   </Function>
   <Function ID="7" Type="RGBMatrix" Name="Animation Fill Unfill - Generic RGB">
-   <Speed FadeIn="0" FadeOut="0" Duration="500"/>
+   <Speed FadeIn="0" FadeOut="0" Duration="50"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <Algorithm Type="Script">Fill Unfill</Algorithm>
-   <MonoColor>4294901760</MonoColor>
+   <MonoColor>4293782506</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
   </Function>
   <Function ID="8" Type="RGBMatrix" Name="Animation Fill Unfill From Center - Generic RGB">
-   <Speed FadeIn="0" FadeOut="0" Duration="500"/>
+   <Speed FadeIn="0" FadeOut="0" Duration="113"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <Algorithm Type="Script">Fill Unfill From Center</Algorithm>
-   <MonoColor>4294901760</MonoColor>
+   <MonoColor>4292467168</MonoColor>
+   <EndColor>4292939779</EndColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
   </Function>
@@ -343,13 +351,15 @@
    <FixtureGroup>0</FixtureGroup>
   </Function>
   <Function ID="10" Type="RGBMatrix" Name="Animation Gradient - Generic RGB">
-   <Speed FadeIn="0" FadeOut="0" Duration="500"/>
+   <Speed FadeIn="78" FadeOut="133" Duration="291"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <Algorithm Type="Script">Gradient</Algorithm>
    <MonoColor>4294901760</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
+   <Property Name="presetSize" Value="5"/>
+   <Property Name="presetIndex" Value="Abstract"/>
   </Function>
   <Function ID="11" Type="RGBMatrix" Name="Animation Lines - Generic RGB">
    <Speed FadeIn="0" FadeOut="0" Duration="500"/>
@@ -397,13 +407,20 @@
    <FixtureGroup>0</FixtureGroup>
   </Function>
   <Function ID="16" Type="RGBMatrix" Name="Animation Plasma (Colors) - Generic RGB">
-   <Speed FadeIn="0" FadeOut="0" Duration="500"/>
+   <Speed FadeIn="0" FadeOut="0" Duration="13"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <Algorithm Type="Script">Plasma (Colors)</Algorithm>
    <MonoColor>4294901760</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
+   <Property Name="color4Index" Value="Blue"/>
+   <Property Name="presetSize" Value="5"/>
+   <Property Name="color2Index" Value="Red"/>
+   <Property Name="color5Index" Value="OFF"/>
+   <Property Name="ramp" Value="15"/>
+   <Property Name="stepsize" Value="11"/>
+   <Property Name="color3Index" Value="Green"/>
   </Function>
   <Function ID="17" Type="RGBMatrix" Name="Animation Random Column - Generic RGB">
    <Speed FadeIn="0" FadeOut="0" Duration="500"/>
@@ -433,11 +450,11 @@
    <FixtureGroup>0</FixtureGroup>
   </Function>
   <Function ID="20" Type="RGBMatrix" Name="Animation Random Fill Single - Generic RGB">
-   <Speed FadeIn="0" FadeOut="0" Duration="500"/>
+   <Speed FadeIn="0" FadeOut="0" Duration="282"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <Algorithm Type="Script">Random Fill Single</Algorithm>
-   <MonoColor>4294901760</MonoColor>
+   <MonoColor>4293782251</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
   </Function>
@@ -485,6 +502,7 @@
    <MonoColor>4294901760</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
+   <Property Name="presetflakes" Value="20"/>
   </Function>
   <Function ID="26" Type="RGBMatrix" Name="Animation Squares - Generic RGB">
    <Speed FadeIn="0" FadeOut="0" Duration="500"/>
@@ -551,13 +569,15 @@
    <FixtureGroup>0</FixtureGroup>
   </Function>
   <Function ID="33" Type="RGBMatrix" Name="Animation Waves - Generic RGB">
-   <Speed FadeIn="0" FadeOut="0" Duration="500"/>
+   <Speed FadeIn="0" FadeOut="0" Duration="58"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <Algorithm Type="Script">Waves</Algorithm>
    <MonoColor>4294901760</MonoColor>
    <ControlMode>RGB</ControlMode>
    <FixtureGroup>0</FixtureGroup>
+   <Property Name="tailfade" Value="Yes"/>
+   <Property Name="taillength" Value="70"/>
   </Function>
   <Function ID="34" Type="EFX" Name="chasefade">
    <Fixture>
@@ -678,7 +698,7 @@
    <RunOrder>Loop</RunOrder>
    <Algorithm>Diamond</Algorithm>
    <Width>127</Width>
-   <Height>127</Height>
+   <Height>60</Height>
    <Rotation>0</Rotation>
    <StartOffset>0</StartOffset>
    <IsRelative>0</IsRelative>
@@ -688,7 +708,7 @@
     <Phase>90</Phase>
    </Axis>
    <Axis Name="Y">
-    <Offset>127</Offset>
+    <Offset>145</Offset>
     <Frequency>3</Frequency>
     <Phase>0</Phase>
    </Axis>
@@ -755,8 +775,147 @@
    <Step Number="1" FadeIn="0" Hold="0" FadeOut="0">39</Step>
   </Function>
   <Function ID="41" Type="Collection" Name="startup">
-   <Step Number="0">34</Step>
-   <Step Number="1">40</Step>
+   <Step Number="0">40</Step>
+   <Step Number="1">68</Step>
+   <Step Number="2">43</Step>
+  </Function>
+  <Function ID="42" Type="EFX" Name="New EFX 42">
+   <Fixture>
+    <ID>0</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>1</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>2</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>3</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>4</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>5</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>6</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>7</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>8</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>9</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>10</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>11</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>12</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>13</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>14</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <Fixture>
+    <ID>15</ID>
+    <Head>0</Head>
+    <Mode>2</Mode>
+    <Direction>Forward</Direction>
+    <StartOffset>0</StartOffset>
+   </Fixture>
+   <PropagationMode>Parallel</PropagationMode>
+   <Speed FadeIn="0" FadeOut="0" Duration="20000"/>
+   <Direction>Forward</Direction>
+   <RunOrder>Loop</RunOrder>
+   <Algorithm>Circle</Algorithm>
+   <Width>127</Width>
+   <Height>127</Height>
+   <Rotation>0</Rotation>
+   <StartOffset>0</StartOffset>
+   <IsRelative>0</IsRelative>
+   <Axis Name="X">
+    <Offset>127</Offset>
+    <Frequency>2</Frequency>
+    <Phase>90</Phase>
+   </Axis>
+   <Axis Name="Y">
+    <Offset>127</Offset>
+    <Frequency>3</Frequency>
+    <Phase>0</Phase>
+   </Axis>
+  </Function>
+  <Function ID="43" Type="Scene" Name="New Scene 43">
+   <Speed FadeIn="0" FadeOut="0" Duration="0"/>
+   <FixtureVal ID="15">0,255,1,255,2,255</FixtureVal>
   </Function>
   <Function ID="53" Type="Chaser" Name="2">
    <Speed FadeIn="1456" FadeOut="1248" Duration="2832"/>
@@ -843,11 +1002,15 @@
    <Step Number="0" FadeIn="1456" Hold="1376" FadeOut="1248">83</Step>
   </Function>
   <Function ID="68" Type="Chaser" Name="chase">
-   <Speed FadeIn="5000" FadeOut="5000" Duration="65000"/>
+   <Speed FadeIn="0" FadeOut="0" Duration="60000"/>
    <Direction>Forward</Direction>
    <RunOrder>Loop</RunOrder>
    <SpeedModes FadeIn="Common" FadeOut="Common" Duration="Common"/>
-   <Step Number="0" FadeIn="0" Hold="0" FadeOut="0">34</Step>
+   <Step Number="0" FadeIn="0" Hold="10000" FadeOut="0">16</Step>
+   <Step Number="1" FadeIn="0" Hold="10000" FadeOut="0">8</Step>
+   <Step Number="2" FadeIn="0" Hold="0" FadeOut="0">34</Step>
+   <Step Number="3" FadeIn="0" Hold="10000" FadeOut="0">7</Step>
+   <Step Number="4" FadeIn="0" Hold="10000" FadeOut="0">33</Step>
   </Function>
   <Function ID="69" Type="Scene" Name="cryo + lights">
    <Speed FadeIn="0" FadeOut="0" Duration="0"/>
@@ -1106,7 +1269,7 @@
     <Font>Default</Font>
    </Appearance>
    <CueList Caption="1" ID="0">
-    <WindowState Visible="True" X="0" Y="0" Width="300" Height="220"/>
+    <WindowState Visible="False" X="0" Y="0" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1125,7 +1288,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="10" ID="3">
-    <WindowState Visible="True" X="1250" Y="215" Width="300" Height="220"/>
+    <WindowState Visible="False" X="1250" Y="215" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1144,7 +1307,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="5" ID="4">
-    <WindowState Visible="True" X="1245" Y="0" Width="300" Height="220"/>
+    <WindowState Visible="False" X="1245" Y="0" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1163,7 +1326,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="cryo" ID="5">
-    <WindowState Visible="True" X="1250" Y="455" Width="300" Height="220"/>
+    <WindowState Visible="False" X="1250" Y="455" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1182,7 +1345,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="9" ID="6">
-    <WindowState Visible="True" X="940" Y="215" Width="300" Height="220"/>
+    <WindowState Visible="False" X="940" Y="215" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1201,7 +1364,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="4" ID="7">
-    <WindowState Visible="True" X="940" Y="0" Width="300" Height="220"/>
+    <WindowState Visible="False" X="940" Y="0" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1220,7 +1383,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="13" ID="8">
-    <WindowState Visible="True" X="625" Y="450" Width="300" Height="220"/>
+    <WindowState Visible="False" X="625" Y="450" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1239,7 +1402,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="8" ID="9">
-    <WindowState Visible="True" X="630" Y="220" Width="300" Height="220"/>
+    <WindowState Visible="False" X="630" Y="220" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1258,7 +1421,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="3" ID="10">
-    <WindowState Visible="True" X="630" Y="0" Width="300" Height="220"/>
+    <WindowState Visible="False" X="630" Y="0" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1277,7 +1440,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="12" ID="11">
-    <WindowState Visible="True" X="310" Y="460" Width="300" Height="220"/>
+    <WindowState Visible="False" X="310" Y="460" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1296,7 +1459,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="7" ID="12">
-    <WindowState Visible="True" X="310" Y="225" Width="300" Height="220"/>
+    <WindowState Visible="False" X="310" Y="225" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1315,7 +1478,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="2" ID="13">
-    <WindowState Visible="True" X="305" Y="0" Width="300" Height="220"/>
+    <WindowState Visible="False" X="305" Y="0" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1334,7 +1497,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="11" ID="14">
-    <WindowState Visible="True" X="5" Y="465" Width="300" Height="220"/>
+    <WindowState Visible="False" X="5" Y="465" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1353,7 +1516,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="6" ID="15">
-    <WindowState Visible="True" X="0" Y="230" Width="300" Height="220"/>
+    <WindowState Visible="False" X="0" Y="230" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1372,7 +1535,7 @@
     <Stop/>
    </CueList>
    <CueList Caption="Cue list" ID="17">
-    <WindowState Visible="True" X="940" Y="450" Width="300" Height="220"/>
+    <WindowState Visible="False" X="940" Y="450" Width="300" Height="220"/>
     <Appearance>
      <FrameStyle>Sunken</FrameStyle>
      <ForegroundColor>Default</ForegroundColor>
@@ -1381,6 +1544,22 @@
      <Font>Default</Font>
     </Appearance>
     <Chaser>40</Chaser>
+    <NextPrevBehavior>0</NextPrevBehavior>
+    <Next/>
+    <Previous/>
+    <Playback/>
+    <Stop/>
+   </CueList>
+   <CueList Caption="Cue list" ID="1">
+    <WindowState Visible="False" X="185" Y="105" Width="300" Height="220"/>
+    <Appearance>
+     <FrameStyle>Sunken</FrameStyle>
+     <ForegroundColor>Default</ForegroundColor>
+     <BackgroundColor>Default</BackgroundColor>
+     <BackgroundImage>None</BackgroundImage>
+     <Font>Default</Font>
+    </Appearance>
+    <Chaser>68</Chaser>
     <NextPrevBehavior>0</NextPrevBehavior>
     <Next/>
     <Previous/>
