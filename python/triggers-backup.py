@@ -3,46 +3,14 @@ import pygame
 import mido
 from random import randrange
 
-class _Getch:
-    def __init__(self):
-        try:
-            self.impl = _GetchWindows()
-        except ImportError:
-            self.impl = _GetchUnix()
-
-    def __call__(self): return self.impl()
-
-
-class _GetchUnix:
-    def __init__(self):
-        import tty, sys
-
-    def __call__(self):
-        import sys, tty, termios
-        fd = sys.stdin.fileno()
-        old_settings = termios.tcgetattr(fd)
-        try:
-            tty.setraw(sys.stdin.fileno())
-            ch = sys.stdin.read(1)
-        finally:
-            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
-        return ch
-
-
-class _GetchWindows:
-    def __init__(self):
-        import msvcrt
-
-    def __call__(self):
-        import msvcrt
-        return msvcrt.getch()
-
-
-getch = _Getch()
 
 lastCryo = time.time()
 interval = 60
 
+
+names = mido.get_output_names()
+# for name in names:
+    # print(name)
 
 out_port = mido.open_output(names[0])
 
@@ -71,27 +39,24 @@ def sendMidiNote(note):
     msg = mido.Message('note_off', note=note, velocity=127, time=1)
     out_port.send(msg)
 
-keys = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd']
 
 try:
      while True:
+         val = input("Hit: ")
+         if val == "1":
+             num = randrange(1,13)
+             sendMidiNote(100 + num)
+             sounds[num - 1].play()
+             print(num)
 
-         val = getch()
-         print(f'input: {val}')
-         for i in range(len(keys)):
-             if keys[i] == val:
-                 sendMidiNote(101 + i)
-                 print(f'midi note: {100 + i}')
-                 sounds[i].play()
-                 print(f'sound: {i}')
-             if val == "2":
-                 sendMidiNote(120)
-                 print('cryo!!!')
-                 lastCryo = time.time()
-             pass
-         if val == "c":
-            exit()
-
+         if val == "2":
+             num = randrange(1,13)
+             sendMidiNote(100 + num)
+             sounds[num - 1].play()
+             print(num)
+             sendMidiNote(120)
+             print('cryo!!!')
+             lastCryo = time.time()
 except Exception as e:
     print(e)
 
