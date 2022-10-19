@@ -46,6 +46,11 @@ def sendMidiNote(note):
 def incrementCanCount():
     s = shelve.open('counter.db', writeback=True)
     try:
+        existing = s['key1']
+    except Exception as e:
+        print e:
+        s['key1'] = {count: 0}
+    try:
         s['key1']['count'] += 1
     finally:
         s.close()

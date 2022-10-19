@@ -3,11 +3,9 @@ import time
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 import mido
+import shelve
 from random import randrange
 import shutil
-
-def print_centre(s):
-    print(s.center(shutil.get_terminal_size().columns))
 
 class _Getch:
     def __init__(self):
@@ -17,7 +15,6 @@ class _Getch:
             self.impl = _GetchUnix()
 
     def __call__(self): return self.impl()
-
 
 class _GetchUnix:
     def __init__(self):
@@ -33,7 +30,6 @@ class _GetchUnix:
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
-
 
 class _GetchWindows:
     def __init__(self):
@@ -51,8 +47,6 @@ interval = 60
 
 
 names = mido.get_output_names()
-# for name in names:
-    # print(name)
 
 out_port = mido.open_output(names[0])
 
@@ -83,9 +77,19 @@ def send_midi_note(note):
     msg = mido.Message('note_off', note=note, velocity=127, time=1)
     out_port.send(msg)
 
-keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e']
-keys_labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0 ', 'q ', 'w ', 'e ']
-monst_idx = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']
+def increment_can_count():
+    s = shelve.open('counter.db', writeback=True)
+    try:
+        s['key1']['count'] += 1
+        val = s['key1']['count']
+    except: 
+        s['key1'] = {'count': 0}         
+    finally:
+        s.close()
+        return val
+
+
+
 val = '1'
 
 first = True
@@ -99,28 +103,44 @@ try:
             first = False
          os.system('cls' if os.name == 'nt' else 'clear')
          print('\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n')
-         print_centre('💀')
+         print('💀')
+         keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e']
+         keys_labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0 ', 'q ', 'w ', 'e ']
+         monst_idx = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']
          for i in range(len(keys)):
+             try:
+                 keys.index(val)
+             except:
+                 print(f'{val} is not a valid key')
+                 break
              if keys[i] == val:
-                 print_centre(f'⌨️ input: {val}')
-                 send_midi_note(101 + i)
-                 print_centre(f'🎹 midi note: {100 + i}')
                  sounds[i].play()
-                 print_centre(f'🎵 sound: {sound_labels[i]}')
-                 print_centre(f'💀 monster: {monst_idx[i]}')
+                 send_midi_note(101 + i)
+
+                 keys_labels[i] = '\033[92m' + keys_labels[i] + '\033[0m'
+                 monst_idx[i] = '\033[92m' + monst_idx[i] + '\033[0m'
+
+                 print(f'⌨️ input: {val}')
+                 print(f'🎹 midi note: {100 + i}')
+                 print(f'🎵 sound: {sound_labels[i]}')
+                 print(f'💀 monster: {monst_idx[i]}')
+                 print('📐 can count: ' + str(increment_can_count()))
              pass
-         print_centre('💀')
+         
+         print('💀')
+
          if val == "G":
              send_midi_note(120)
-             print_centre('🚀🚀🚀 cryo!!! 🚀🚀🚀')
-             lastCryo = time.time()
+             print('🚀🚀🚀 cryo!!! 🚀🚀🚀')
          if val == "c":
             exit()
+# footer
          print('\n\n\n\n')
-         print_centre('Press c to exit 🛫. press capital G for 🚀cryo🚀')
+         print('Press c to exit 🛫. press capital G for 🚀cryo🚀')
          print('\n\n\n\n')
-         print_centre(' | '.join(keys_labels))
-         print_centre(' | '.join(monst_idx))
+         print(' | '.join(keys_labels))
+         print(' | '.join(monst_idx))
+
 except Exception as e:
     print(e)
 
