@@ -1,7 +1,13 @@
+import os
 import time
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 import mido
 from random import randrange
+import shutil
+
+def print_centre(s):
+    print(s.center(shutil.get_terminal_size().columns))
 
 class _Getch:
     def __init__(self):
@@ -75,26 +81,29 @@ def sendMidiNote(note):
     msg = mido.Message('note_off', note=note, velocity=127, time=1)
     out_port.send(msg)
 
-keys = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd']
-
+keys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'q', 'w', 'e']
+val = '1'
 try:
      while True:
 
          val = getch()
-         print(f'input: {val}')
+         os.system('cls' if os.name == 'nt' else 'clear')
+         print('\n\n\n\n\n\n\n\n\n')
          for i in range(len(keys)):
              if keys[i] == val:
+                 print_centre(f'input: {val}')
                  sendMidiNote(101 + i)
-                 print(f'midi note: {100 + i}')
+                 print_centre(f'midi note: {100 + i}')
                  sounds[i].play()
-                 print(f'sound: {i}')
-             if val == "2":
-                 sendMidiNote(120)
-                 print('cryo!!!')
-                 lastCryo = time.time()
+                 print_centre(f'sound: {i}')
              pass
+         if val == "G":
+             sendMidiNote(120)
+             print('cryo!!!')
+             lastCryo = time.time()
          if val == "c":
             exit()
+         print_centre('Press c to exit. press capital G for cryo')
 
 except Exception as e:
     print(e)
