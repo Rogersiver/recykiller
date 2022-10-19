@@ -44,6 +44,10 @@ lastCryo = time.time()
 interval = 60
 
 
+names = mido.get_output_names()
+# for name in names:
+    # print(name)
+
 out_port = mido.open_output(names[0])
 
 pygame.mixer.init()
